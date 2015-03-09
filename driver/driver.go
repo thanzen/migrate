@@ -6,12 +6,11 @@ import (
 	"fmt"
 	neturl "net/url" // alias to allow `url string` func signature in New
 
-	"github.com/mattes/migrate/driver/bash"
-	"github.com/mattes/migrate/driver/cassandra"
-	"github.com/mattes/migrate/driver/mysql"
-	"github.com/mattes/migrate/driver/postgres"
-	"github.com/mattes/migrate/driver/sqlite3"
-	"github.com/mattes/migrate/file"
+	"github.com/thanzen/migrate/driver/bash"
+	"github.com/thanzen/migrate/driver/cassandra"
+	"github.com/thanzen/migrate/driver/mysql"
+	"github.com/thanzen/migrate/driver/postgres"
+	"github.com/thanzen/migrate/file"
 )
 
 // Driver is the interface type that needs to implemented by all drivers.
@@ -75,13 +74,6 @@ func New(url string) (Driver, error) {
 	case "cassandra":
 		d := &cassandra.Driver{}
 		verifyFilenameExtension("cassanda", d)
-		if err := d.Initialize(url); err != nil {
-			return nil, err
-		}
-		return d, nil
-	case "sqlite3":
-		d := &sqlite3.Driver{}
-		verifyFilenameExtension("sqlite3", d)
 		if err := d.Initialize(url); err != nil {
 			return nil, err
 		}

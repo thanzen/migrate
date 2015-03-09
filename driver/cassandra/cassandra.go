@@ -4,8 +4,8 @@ package cassandra
 import (
 	"fmt"
 	"github.com/gocql/gocql"
-	"github.com/mattes/migrate/file"
-	"github.com/mattes/migrate/migrate/direction"
+	"github.com/thanzen/migrate/file"
+	"github.com/thanzen/migrate/migrate/direction"
 	"net/url"
 	"strings"
 	"time"
